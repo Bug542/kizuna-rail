@@ -15,3 +15,28 @@
 @import 'components/columns-grid.css' layer(components);
 
 @import 'layout/all-layouts.css' layer(layout);
+
+@media print {
+    header,
+    nav,
+    footer,
+    button,
+    .no-print {
+        display: none;
+    }
+
+    body {
+        font-size: 12pt;
+        margin: 0;
+    }
+
+    .confirmation-page {
+        width: 100%;
+        box-shadow: none;
+        border: none;
+    }
+
+    @page {
+        margin: 0.5in;
+    }
+}

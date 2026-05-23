@@ -1,23 +1,23 @@
 <%- include('../partials/header') %>
 <h1><%- title %></h1>
 
-<div id="filters">
-    Search by Region:
-    <select id="region-filter">
-        <option value="all">All Regions</option>
+<form method="GET" class="filter-grid">
+    <select name="region">
+        <option value="">All Regions</option>
         <% regions.forEach((region) => { %>
-            <option value="<%= region %>" <%= query.region === region ? 'selected' : '' %>><%= region.charAt(0).toUpperCase() + region.slice(1) %></option>
+            <option value="<%= region %>" <%= selectedRegion === region ? 'selected' : '' %>><%= region.charAt(0).toUpperCase() + region.slice(1) %></option>
         <% }); %>
     </select>
 
-    Search by Season:
-    <select id="season-filter">
-        <option value="all">Any Season</option>
+    <select name="season">
+        <option value="">All Seasons</option>
         <% seasons.forEach((season) => { %>
-            <option value="<%= season %>" <%= query.season === season ? 'selected' : '' %>><%= season.charAt(0).toUpperCase() + season.slice(1) %></option>
+            <option value="<%= season %>" <%= selectedSeason === season ? 'selected' : '' %>><%= season.charAt(0).toUpperCase() + season.slice(1) %></option>
         <% }); %>
     </select>
-</div>
+
+    <button type="submit">Filter</button>
+</form>
 
 <div class="routes-grid">
     <% routes.forEach(route => { %>
